@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Antonella Portugal" />
+    <meta name="keywords" content="photo gallery, galeria de fotos" />
+    <meta
+      name="description"
+      content="galería de fotos de imágenes alrededor de EEUU"
+    />
+    <title>Around the US</title>
+    <link rel="stylesheet" href="./pages/index.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <img
+          class="header__logo"
+          src="./images/logo.png"
+          alt="logo de la pagina"
+        />
+        <div class="header__line"></div>
+      </header>
+      <main class="main">
+        <section class="profile">
+          <img
+            class="profile__avatar"
+            src="./images/avatar.jpg"
+            alt="avatar del perfil"
+          />
+          <div class="profile__info">
+            <div class="profile__name-container">
+              <h2 class="profile__name">Jackes Cousteau</h2>
+              <button class="profile__edit-button">
+                <img
+                  src="./images/Edit_Button.png"
+                  alt="boton de editar perfil"
+                />
+              </button>
+            </div>
+
+            <p class="profile__description">Explorador</p>
+          </div>
+          <button class="profile__add-button">
+            <img
+              src="./images/Add_Button.png"
+              alt="boton de añadir en perfil"
+            />
+          </button>
+        </section>
+        <section class="elements">
+          <div class="element">
+            <img
+              class="element__image"
+              src="./images/image1.jpg"
+              alt="fotografía del valle de yosemite"
+            />
+            <div class="element__description">
+              <h3 class="element__title">Valle de Yosemite</h3>
+              <label>
+                <input type="checkbox" class="element__heart" />
+                <span class="element__pseudo-item"></span>
+              </label>
+            </div>
+          </div>
+          <div class="element">
+            <img
+              class="element__image"
+              src="./images/image2.jpg"
+              alt="fotografía del Lago Louise"
+            />
+            <div class="element__description">
+              <h3 class="element__title">Lago Louise</h3>
+              <label>
+                <input type="checkbox" class="element__heart" />
+                <span class="element__pseudo-item"></span>
+              </label>
+            </div>
+          </div>
+          <div class="element">
+            <img
+              class="element__image"
+              src="./images/image3.jpg"
+              alt="fotografía de Montañas Calvas"
+            />
+            <div class="element__description">
+              <h3 class="element__title">Montañas Calvas</h3>
+              <label>
+                <input type="checkbox" class="element__heart" />
+                <span class="element__pseudo-item"></span>
+              </label>
+            </div>
+          </div>
+          <div class="element">
+            <img
+              class="element__image"
+              src="./images/image4.jpg"
+              alt="fotografía del Latemar"
+            />
+            <div class="element__description">
+              <h3 class="element__title">Latemar</h3>
+              <label>
+                <input type="checkbox" class="element__heart" />
+                <span class="element__pseudo-item"></span>
+              </label>
+            </div>
+          </div>
+          <div class="element">
+            <img
+              class="element__image"
+              src="./images/image5.jpg"
+              alt="fotografía de Vanois National..."
+            />
+            <div class="element__description">
+              <h3 class="element__title">Vanoise National Park</h3>
+              <label>
+                <input type="checkbox" class="element__heart" />
+                <span class="element__pseudo-item"></span>
+              </label>
+            </div>
+          </div>
+          <div class="element">
+            <img
+              class="element__image"
+              src="./images/image6.jpg"
+              alt="fotografía del Lago di Braies"
+            />
+            <div class="element__description">
+              <h3 class="element__title">Lago di Braies</h3>
+              <label>
+                <input type="checkbox" class="element__heart" />
+                <span class="element__pseudo-item"></span>
+              </label>
+            </div>
+          </div>
+        </section>
+        <div class="popup">
+          <div class="popup__container">
+            <form class="form">
+              <button class="form__button-close">
+                <img
+                  class="form__button-close-img"
+                  src="./images/Close_Icon.png"
+                  alt="close button"
+                />
+              </button>
+              <h3 class="form__title">Editar perfil</h3>
+              <input
+                class="form__field"
+                type="text"
+                name="name"
+                placeholder="Nombre"
+              />
+              <input
+                class="form__field"
+                type="text"
+                name="aboutme"
+                placeholder="Acerca de mí"
+              />
+              <button
+                class="form__button-save form__button-save_active"
+                type="submit"
+                onclick="handleProfileFormSubmit"
+              >
+                Guardar
+              </button>
+            </form>
+          </div>
+        </div>
+      </main>
+      <footer class="footer">
+        <p class="footer__text">© 2021 Around The U.S.</p>
+      </footer>
+    </div>
+    <script src="scripts/script.js"></script>
+  </body>
+</html>
