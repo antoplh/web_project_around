@@ -16,6 +16,9 @@
   flex-direction: column;
   justify-content: center;
   gap: 15px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .profile__name-container {
   display: flex;
@@ -26,7 +29,10 @@
   grid-area: name;
   font-size: 2.7em;
   font-weight: 500;
-  line-height: 30px;
+  line-height: 35px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .profile__edit-button {
   grid-area: button;
@@ -40,6 +46,10 @@
   grid-area: description;
   font-size: 1em;
   font-weight: 400;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 80%;
 }
 .profile__add-button {
   justify-self: self-end;
@@ -61,6 +71,13 @@
   }
   .profile__info {
     align-items: center;
+    width: 100%;
+  }
+  .profile__name-container {
+    width: 84%;
+  }
+  .profile__description {
+    width: 40%;
   }
   .profile__name-container {
     align-items: start;
