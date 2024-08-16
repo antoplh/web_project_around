@@ -49,95 +49,10 @@
             />
           </button>
         </section>
-        <section class="elements">
-          <div class="element">
-            <img
-              class="element__image"
-              src="./images/image1.jpg"
-              alt="fotografía del valle de yosemite"
-            />
-            <div class="element__description">
-              <h3 class="element__title">Valle de Yosemite</h3>
-              <label>
-                <input type="checkbox" class="element__heart" />
-                <span class="element__pseudo-item"></span>
-              </label>
-            </div>
-          </div>
-          <div class="element">
-            <img
-              class="element__image"
-              src="./images/image2.jpg"
-              alt="fotografía del Lago Louise"
-            />
-            <div class="element__description">
-              <h3 class="element__title">Lago Louise</h3>
-              <label>
-                <input type="checkbox" class="element__heart" />
-                <span class="element__pseudo-item"></span>
-              </label>
-            </div>
-          </div>
-          <div class="element">
-            <img
-              class="element__image"
-              src="./images/image3.jpg"
-              alt="fotografía de Montañas Calvas"
-            />
-            <div class="element__description">
-              <h3 class="element__title">Montañas Calvas</h3>
-              <label>
-                <input type="checkbox" class="element__heart" />
-                <span class="element__pseudo-item"></span>
-              </label>
-            </div>
-          </div>
-          <div class="element">
-            <img
-              class="element__image"
-              src="./images/image4.jpg"
-              alt="fotografía del Latemar"
-            />
-            <div class="element__description">
-              <h3 class="element__title">Latemar</h3>
-              <label>
-                <input type="checkbox" class="element__heart" />
-                <span class="element__pseudo-item"></span>
-              </label>
-            </div>
-          </div>
-          <div class="element">
-            <img
-              class="element__image"
-              src="./images/image5.jpg"
-              alt="fotografía de Vanois National..."
-            />
-            <div class="element__description">
-              <h3 class="element__title">Vanoise National Park</h3>
-              <label>
-                <input type="checkbox" class="element__heart" />
-                <span class="element__pseudo-item"></span>
-              </label>
-            </div>
-          </div>
-          <div class="element">
-            <img
-              class="element__image"
-              src="./images/image6.jpg"
-              alt="fotografía del Lago di Braies"
-            />
-            <div class="element__description">
-              <h3 class="element__title">Lago di Braies</h3>
-              <label>
-                <input type="checkbox" class="element__heart" />
-                <span class="element__pseudo-item"></span>
-              </label>
-            </div>
-          </div>
-        </section>
-        <div class="popup">
+        <section class="cards"></section>
+        <div class="popup" id="profile-popup">
           <div class="popup__container">
-            <form class="form">
+            <form class="form" id="profile-form">
               <button class="form__button-close">
                 <img
                   class="form__button-close-img"
@@ -168,11 +83,71 @@
             </form>
           </div>
         </div>
+        <div class="popup" id="place-popup">
+          <div class="popup__container">
+            <form class="form" id="place-form">
+              <button class="form__button-close">
+                <img
+                  class="form__button-close-img"
+                  src="./images/Close_Icon.png"
+                  alt="close button"
+                />
+              </button>
+              <h3 class="form__title">Nuevo Lugar</h3>
+              <input
+                class="form__field"
+                type="text"
+                name="title"
+                placeholder="Título"
+              />
+              <input
+                class="form__field"
+                type="text"
+                name="url"
+                placeholder="URL de la imagen"
+              />
+              <button
+                class="form__button-save form__button-save_active"
+                type="submit"
+                onclick="handlePlaceFormSubmit"
+              >
+                Guardar
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="popup" id="image-popup">
+          <div class="popup__container popup-image__container">
+            <button class="form__button-close">
+              <img
+                class="form__button-close-img"
+                src="./images/Close_Icon.png"
+                alt="close button"
+              />
+            </button>
+            <img
+              src="https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg"
+              alt=""
+              class="popup__image-src"
+            />
+            <p class="popup__image-title"></p>
+          </div>
+        </div>
       </main>
       <footer class="footer">
         <p class="footer__text">&copy; 2021 Around The U.S.</p>
       </footer>
     </div>
+    <template id="card-template">
+      <div class="card">
+        <button class="card__delete"></button>
+        <img class="card__image" />
+        <div class="card__description">
+          <h3 class="card__title"></h3>
+          <button class="card__heart"></button>
+        </div>
+      </div>
+    </template>
     <script src="scripts/script.js"></script>
   </body>
 </html>

@@ -21,8 +21,26 @@
   color: #000;
 }
 
+.popup-image__container {
+  background-color: transparent;
+  width: fit-content;
+  height: fit-content;
+  color: white;
+  padding: 0;
+}
+.popup-image {
+  display: flex;
+}
+
 .popup_opened {
   display: flex;
+}
+
+.popup__image-src {
+  max-width: 75vh;
+  max-height: 75vh;
+  object-fit: cover;
+  width: 100%;
 }
 
 @media screen and (max-width: 320px) {
