@@ -167,3 +167,13 @@ closeImagePopup.addEventListener("click", function (evt) {
   let popup = document.querySelector("#image-popup");
   popup.classList.remove("popup_opened");
 });
+
+// Close all Popups with Escape Key
+document.addEventListener("keydown", (evt) => {
+  if (evt.key == "Escape") {
+    handleProfileFormClose(evt);
+    handlePlaceFormClose(evt);
+    let popup = document.querySelector("#image-popup");
+    popup.classList.remove("popup_opened");
+  }
+});

@@ -52,67 +52,91 @@
         <section class="cards"></section>
         <div class="popup" id="profile-popup">
           <div class="popup__container">
-            <form class="form" id="profile-form">
-              <button class="form__button-close">
-                <img
-                  class="form__button-close-img"
-                  src="./images/Close_Icon.png"
-                  alt="close button"
+            <form class="form" id="profile-form" novalidate>
+              <fieldset class="form__set">
+                <button class="form__button-close">
+                  <img
+                    class="form__button-close-img"
+                    src="./images/Close_Icon.png"
+                    alt="close button"
+                  />
+                </button>
+                <h3 class="form__title">Editar perfil</h3>
+
+                <input
+                  id="name-input"
+                  class="form__input"
+                  type="text"
+                  name="name"
+                  placeholder="Nombre"
+                  minlength="2"
+                  maxlength="40"
+                  required
                 />
-              </button>
-              <h3 class="form__title">Editar perfil</h3>
-              <input
-                class="form__field"
-                type="text"
-                name="name"
-                placeholder="Nombre"
-              />
-              <input
-                class="form__field"
-                type="text"
-                name="aboutme"
-                placeholder="Acerca de mí"
-              />
-              <button
-                class="form__button-save form__button-save_active"
-                type="submit"
-                onclick="handleProfileFormSubmit"
-              >
-                Guardar
-              </button>
+                <span class="form__input-error name-input-error"></span>
+                <input
+                  id="aboutme-input"
+                  class="form__input"
+                  type="text"
+                  name="aboutme"
+                  placeholder="Acerca de mí"
+                  minlength="2"
+                  maxlength="200"
+                  required
+                />
+                <span class="form__input-error aboutme-input-error"></span>
+                <button
+                  class="form__button-save form__button-save_active"
+                  type="submit"
+                  onclick="handleProfileFormSubmit"
+                >
+                  Guardar
+                </button>
+              </fieldset>
             </form>
           </div>
         </div>
         <div class="popup" id="place-popup">
           <div class="popup__container">
-            <form class="form" id="place-form">
-              <button class="form__button-close">
-                <img
-                  class="form__button-close-img"
-                  src="./images/Close_Icon.png"
-                  alt="close button"
+            <form class="form" id="place-form" novalidate>
+              <fieldset class="form__set">
+                <button class="form__button-close">
+                  <img
+                    class="form__button-close-img"
+                    src="./images/Close_Icon.png"
+                    alt="close button"
+                  />
+                </button>
+                <h3 class="form__title">Nuevo Lugar</h3>
+
+                <input
+                  id="title-input"
+                  class="form__input"
+                  type="text"
+                  name="title"
+                  placeholder="Título"
+                  minlength="2"
+                  maxlength="30"
+                  required
                 />
-              </button>
-              <h3 class="form__title">Nuevo Lugar</h3>
-              <input
-                class="form__field"
-                type="text"
-                name="title"
-                placeholder="Título"
-              />
-              <input
-                class="form__field"
-                type="text"
-                name="url"
-                placeholder="URL de la imagen"
-              />
-              <button
-                class="form__button-save form__button-save_active"
-                type="submit"
-                onclick="handlePlaceFormSubmit"
-              >
-                Guardar
-              </button>
+                <span class="form__input-error title-input-error"></span>
+                <input
+                  id="url-input"
+                  class="form__input"
+                  type="url"
+                  name="url"
+                  placeholder="URL de la imagen"
+                  required
+                />
+                <span class="form__input-error url-input-error"></span>
+                <button
+                  class="form__button-save form__button-save_active"
+                  type="submit"
+                  onclick="handlePlaceFormSubmit"
+                >
+                  Guardar
+                </button>
+              </fieldset>
             </form>
           </div>
         </div>
@@ -135,7 +159,7 @@
         </div>
       </main>
       <footer class="footer">
-        <p class="footer__text">&copy; 2021 Around The U.S.</p>
+        <p class="footer__text">&copy; 2024 Around The U.S.</p>
       </footer>
     </div>
     <template id="card-template">
@@ -149,5 +173,6 @@
       </div>
     </template>
     <script src="scripts/script.js"></script>
+    <script src="scripts/validate.js"></script>
   </body>
 </html>
