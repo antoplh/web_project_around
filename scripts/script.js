@@ -38,6 +38,19 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg",
   },
 ];
+const popupElements = Array.from(document.querySelectorAll(".popup"));
+// validation variable
+import { enableValidation } from "./validate.js";
+const validationConfig = {
+  errorClass: "form__input-error_active",
+  inputErrorClass: "form__input_type_error",
+  activeButtonClass: "form__button-save_active",
+  formSelector: ".form",
+  submitButtonSelector: ".form__button-save",
+  inputSelector: ".form__input",
+};
+
+enableValidation(validationConfig);
 
 function createCard(name, link) {
   const cardElementTemplate = document.querySelector("#card-template").content;
@@ -64,7 +77,7 @@ function createCard(name, link) {
   });
   return cardElement;
 }
-// se ejecuta al inicio
+
 initialCards.forEach((card) => {
   const cardElement = createCard(card.name, card.link);
   cardsContainer.append(cardElement);
@@ -108,6 +121,8 @@ function handleProfileFormOpen(evt) {
     nameInput.value = profileName.textContent;
     jobInput.value = profileDesc.textContent;
   }
+  const formElement = evt.target.querySelector(validationConfig.formSelector);
+  enableValidation(validationConfig);
 }
 
 function handleProfileFormClose(evt) {
@@ -120,7 +135,10 @@ function handleProfileFormClose(evt) {
 
 function handlePlaceFormOpen(evt) {
   evt.preventDefault();
+
   let popup = document.querySelector("#place-popup");
+  placeFormElement.reset();
+  enableValidation(validationConfig);
 
   if (!popup.classList.contains("popup_opened")) {
     popup.classList.add("popup_opened");
@@ -176,4 +194,16 @@ document.addEventListener("keydown", (evt) => {
     let popup = document.querySelector("#image-popup");
     popup.classList.remove("popup_opened");
   }
+});
+// Close Popup when pressing the .popup class
+popupElements.forEach((popupElement) => {
+  popupElement.addEventListener("click", (evt) => {
+    if (evt.target.classList.contains("popup")) {
+      console.log(evt.target.classList.contains("popup"));
+      handleProfileFormClose(evt);
+      handlePlaceFormClose(evt);
+      let popup = document.querySelector("#image-popup");
+      popup.classList.remove("popup_opened");
+    }
+  });
 });
