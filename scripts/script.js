@@ -179,7 +179,7 @@ addPlaceButton.addEventListener("click", handlePlaceFormOpen);
 placeFormElement.addEventListener("submit", handlePlaceFormSubmit);
 closePlaceFormButton.addEventListener("click", handlePlaceFormClose);
 
-// Handle Image Popup
+// Handle Close Image  Popup
 closeImagePopup.addEventListener("click", function (evt) {
   evt.preventDefault();
   let popup = document.querySelector("#image-popup");
