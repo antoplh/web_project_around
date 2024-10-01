@@ -1,0 +1,16 @@
+{
+  "name": "web_project_around",
+  "version": "1.0.0",
+  "description": "En este proyecto se utiliza todo lo aprendido. En cuanto al diseño, se usan propiedades como Grid y Flexbox, además de responsividad con media queries. El diseño está basado en un Brief de la plataforma Figma.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.94.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.1.0"
+  }
+}
