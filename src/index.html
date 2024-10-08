@@ -10,14 +10,14 @@
       content="galería de fotos de imágenes alrededor de EEUU"
     />
     <title>Around the US</title>
-    <link rel="stylesheet" href="./pages/index.css" />
   </head>
   <body>
     <div class="page">
       <header class="header">
         <img
+          id="image-logo"
+          src="<%=require('./images/logo.png')%>"
           class="header__logo"
-          src="./images/logo.png"
           alt="logo de la pagina"
         />
         <div class="header__line"></div>
@@ -25,8 +25,9 @@
       <main class="main">
         <section class="profile">
           <img
+            id="image-avatar"
+            src="<%=require('./images/avatar.jpg')%>"
             class="profile__avatar"
-            src="./images/avatar.jpg"
             alt="avatar del perfil"
           />
           <div class="profile__info">
@@ -34,7 +35,8 @@
               <h2 class="profile__name">Jackes Cousteau</h2>
               <button class="profile__edit-button">
                 <img
-                  src="./images/Edit_Button.png"
+                  id="image-edit"
+                  src="<%=require('./images/Edit_Button.png')%>"
                   alt="boton de editar perfil"
                 />
               </button>
@@ -44,7 +46,8 @@
           </div>
           <button class="profile__add-button">
             <img
-              src="./images/Add_Button.png"
+              id="image-add"
+              src="<%=require('./images/Add_Button.png')%>"
               alt="boton de añadir en perfil"
             />
           </button>
@@ -54,10 +57,10 @@
           <div class="popup__container">
             <form class="form" id="profile-form" novalidate>
               <fieldset class="form__set">
-                <button class="form__button-close">
+                <button class="form__button-close" type="button">
                   <img
+                    id="image-close"
                     class="form__button-close-img"
-                    src="./images/Close_Icon.png"
                     alt="close button"
                   />
                 </button>
@@ -99,12 +102,8 @@
           <div class="popup__container">
             <form class="form" id="place-form" novalidate>
               <fieldset class="form__set">
-                <button class="form__button-close">
-                  <img
-                    class="form__button-close-img"
-                    src="./images/Close_Icon.png"
-                    alt="close button"
-                  />
+                <button class="form__button-close" type="button">
+                  <img class="form__button-close-img" alt="close button" />
                 </button>
                 <h3 class="form__title">Nuevo Lugar</h3>
 
@@ -141,18 +140,14 @@
         <div class="popup" id="image-popup">
           <div class="popup__container popup-image__container">
             <button class="form__button-close">
-              <img
-                class="form__button-close-img"
-                src="./images/Close_Icon.png"
-                alt="close button"
-              />
+              <img class="form__button-close-img" alt="close button" />
             </button>
             <img
               src="https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg"
               alt=""
-              class="popup__image-src"
+              class="popup__image"
             />
-            <p class="popup__image-title"></p>
+            <p class="popup__caption"></p>
           </div>
         </div>
       </main>
@@ -170,6 +165,5 @@
         </div>
       </div>
     </template>
-    <script type="module" src="scripts/index.js"></script>
   </body>
 </html>

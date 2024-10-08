@@ -37,7 +37,7 @@
   display: flex;
 }
 
-.popup__image-src {
+.popup__image {
   max-width: 75vh;
   max-height: 75vh;
   object-fit: cover;

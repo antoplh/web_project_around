@@ -1,12 +1,16 @@
-export class Popup {
+export default class Popup {
   constructor(popupSelector) {
     this._popupSelector = popupSelector;
     this._popupElement = document.querySelector(popupSelector);
+    this._closePopupButton = this._popupElement.querySelector(
+      ".form__button-close"
+    );
   }
   open() {
     // abre el popup
     if (!this._popupElement.classList.contains("popup_opened")) {
       this._popupElement.classList.add("popup_opened");
+      this._handleEscClose();
     }
   }
   close() {
@@ -27,11 +31,15 @@ export class Popup {
     // cuando el usuario hace clic en el area fuera del formulario
     this._handleEscClose();
     this._popupElement.addEventListener("click", (evt) => {
-      if (evt.target.classList.contain("popup")) {
+      if (evt.target.classList.contains("popup")) {
         this.close();
       }
     });
-    const closePopupButton = document.querySelector(`${this._popupSelector} .form__button-close`)
-    closePopupButton.addEventListener("click", () => {this.close()});
+    this._closePopupButton.addEventListener("click", () => {
+      this.close();
+    });
+  }
+  getElement() {
+    return this._popupElement;
   }
 }
