@@ -1,7 +1,7 @@
 # Tripleten web_project_around
-# Proyecto "Around the US" de TripleTen
 
 ## Descripción del Proyecto
+
 En este proyecto, se utiliza POO en JavaScript para estructurar el código de manera eficiente y modular. La interfaz de usuario permite a los usuarios:
 
 Editar nombre, descripción y foto de perfil.
