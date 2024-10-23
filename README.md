@@ -1,9 +1,23 @@
 # Tripleten web_project_around
-## Proyecto "Around the US" de TripleTen
-En este proyecto se utiliza todo lo aprendido. En cuanto al diseño, se usan propiedades como Grid y Flexbox, además de responsividad con media queries. El diseño está basado en un Brief de la plataforma Figma.
+# Proyecto "Around the US" de TripleTen
 
-Para el funcionamiento se utiliza POO en JavaScript. 
+## Descripción del Proyecto
+En este proyecto, se utiliza POO en JavaScript para estructurar el código de manera eficiente y modular. La interfaz de usuario permite a los usuarios:
 
-Este proyecto simula una red social o galería en la cual se muestra el perfil de un usuario y sus fotografías subidas. Adicionalmente se le implementó JavaScript para editar el nombre y descripción del perfil.
+Editar nombre, descripción y foto de perfil.
+* Subir y eliminar fotografías.
+* Dar "me gusta" a las fotografías.
+* Ver imágenes en tamaño grande al hacer clic sobre ellas.
+* Tecnologías Utilizadas
+* HTML: Para la estructura del contenido.
+* CSS: Para el diseño visual, utilizando propiedades como Grid y Flexbox, y media queries para asegurar la responsividad.
+* JavaScript: Para la funcionalidad dinámica de la aplicación, incluyendo la interacción con una API para gestionar datos de usuarios y fotografías.
+* Webpack: Para la gestión y empaquetado de módulos de JavaScript, permitiendo una mejor organización del código y optimización de recursos.
+* API REST: Para realizar peticiones y gestionar datos sobre los perfiles de usuarios y las imágenes.
+* GitHub Pages: Para alojar la aplicación de forma gratuita y permitir su acceso al público.
 
-El sitio web se encuentra en GitHub pages disponible para ser probado: [antoplh.github.io/web_project_around](https://antoplh.github.io/web_project_around/)
+## Diseño
+El diseño de la interfaz se basa en un Brief de Figma, utilizando un enfoque moderno y responsivo que se adapta a diferentes tamaños de pantalla. Se hace uso de añgunos conceptos como Grid y Flexbox.
+
+## Despliegue
+El sitio web está disponible en GitHub Pages y puede ser probado en el siguiente enlace: [antoplh.github.io/web_project_around](https://antoplh.github.io/web_project_around/)
