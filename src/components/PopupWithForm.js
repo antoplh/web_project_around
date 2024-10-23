@@ -22,6 +22,14 @@ export default class PopupWithForm extends Popup {
     });
     return formValues;
   }
+  renderLoading(isLoading) {
+    const saveButton = this._form.querySelector(".form__button-save_active");
+    if (isLoading) {
+      saveButton.textContent = "Guardando...";
+    } else {
+      saveButton.textContent = "Guardar";
+    }
+  }
   setEventListeners() {
     super.setEventListeners();
     this._form.addEventListener("submit", (evt) => {

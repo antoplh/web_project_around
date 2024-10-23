@@ -39,6 +39,13 @@
   cursor: pointer;
 }
 
+.card__heart::after {
+  content: attr(data-likes);
+  position: relative;
+  top: 20px;
+  font-size: 13px;
+}
+
 .card__heart:hover {
   opacity: 70%;
 }

@@ -1,9 +1,23 @@
 export default class Card {
-  constructor(data, cardSelector, handleCardClick) {
+  constructor(
+    data,
+    cardSelector,
+    handleCardClick,
+    handleCardDelete,
+    handleHeartUpdate,
+    userId
+  ) {
     this._name = data.name;
     this._link = data.link;
+    this._numLikes = data.likes ? data.likes.length : "";
+    this._cardId = data._id;
+    this._userId = userId; // saber el usuario actual
+    this._ownerId = data.owner._id;
     this._cardSelector = cardSelector;
     this._handleCardClick = handleCardClick; // Para usar PopupWithImage
+    this._handleCardDelete = handleCardDelete; // Para usar PopupConfirm
+    this._handleHeartUpdate = handleHeartUpdate; // Para actualizar el like
+    this._isliked = data.likes.some((like) => like._id === this._userId);
   }
 
   _getTemplate() {
@@ -14,6 +28,18 @@ export default class Card {
     return cardElement;
   }
 
+  updateNumHearts(numLikes) {
+    // actualiza el numero de likes en una tarjeta
+    this._numLikes = numLikes !== undefined ? numLikes : this._numLikes;
+
+    const heart = this._element.querySelector(".card__heart");
+    if (this._numLikes === 0) {
+      heart.setAttribute("data-likes", "");
+    } else {
+      heart.setAttribute("data-likes", this._numLikes);
+    }
+  }
+
   generateCard() {
     this._element = this._getTemplate();
     this._setEventListeners();
@@ -22,6 +48,15 @@ export default class Card {
     this._element.querySelector(".card__image").src = this._link;
     this._element.querySelector(".card__image").alt = this._name;
 
+    if (this._userId !== this._ownerId) {
+      this._element.querySelector(".card__delete").style.display = "none";
+    }
+    if (this._isliked) {
+      this._element
+        .querySelector(".card__heart")
+        .classList.add("card__heart_active");
+    }
+    this.updateNumHearts();
     return this._element;
   }
 
@@ -32,7 +67,9 @@ export default class Card {
 
     this._element
       .querySelector(".card__delete")
-      .addEventListener("click", () => this._handleDeleteCard());
+      .addEventListener("click", () =>
+        this._handleCardDelete(this._cardId, this)
+      );
 
     this._element
       .querySelector(".card__image")
@@ -41,7 +78,8 @@ export default class Card {
       );
   }
 
-  _handleDeleteCard() {
+  removeCard() {
+    // Elimina la tarjeta visualmente
     this._element.remove();
     this._element = null;
   }
@@ -50,5 +88,7 @@ export default class Card {
     this._element
       .querySelector(".card__heart")
       .classList.toggle("card__heart_active");
+    this._isliked = !this._isliked;
+    this._handleHeartUpdate(this._cardId, !this._isliked, this); // estado del like contrario para que tome su estado anterior
   }
 }
