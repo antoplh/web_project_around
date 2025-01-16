@@ -1,41 +1,44 @@
 {
-  "name": "web_project_around",
-  "version": "1.0.0",
-  "description": "En este proyecto se utiliza todo lo aprendido. En cuanto al diseño, se usan propiedades como Grid y Flexbox, además de responsividad con media queries. El diseño está basado en un Brief de la plataforma Figma.",
-  "main": "index.js",
-  "scripts": {
-    "build": "webpack --mode production",
-    "dev": "webpack serve",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
-  },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@babel/core": "^7.25.7",
-    "@babel/preset-env": "^7.25.7",
-    "autoprefixer": "^10.4.20",
-    "babel-loader": "^9.2.1",
-    "clean-webpack-plugin": "^4.0.0",
-    "css-loader": "^7.1.2",
-    "cssnano": "^7.0.6",
-    "gh-pages": "^6.2.0",
-    "html-webpack-plugin": "^5.6.0",
-    "mini-css-extract-plugin": "^2.9.1",
-    "postcss-loader": "^8.1.1",
-    "webpack": "^5.95.0",
-    "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^5.1.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/antoplh/web_project_around.git"
-  },
-  "bugs": {
-    "url": "https://github.com/antoplh/web_project_around/issues"
-  },
-  "homepage": "https://github.com/antoplh/web_project_around#readme",
+  "name": "web_project_around_react",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "core-js": "^3.38.1"
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.23.1",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
   }
 }

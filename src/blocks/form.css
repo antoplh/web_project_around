@@ -68,22 +68,15 @@
   padding: 0;
   margin: 0;
 }
-/* 
-.form__button-save_inactive {
-  color: rgb(0, 0, 0, 0.2);
-  background-color: white;
-  border: 1px solid rgb(0, 0, 0, 0.2);
-} */
+
 .form__input_type_error {
   border-bottom-color: red;
 }
 .form__input-error {
   color: red;
   opacity: 0;
-  height: fit-content;
-  /* position: absolute; */
   font-size: 12px;
-  transition: 0.3s;
+  transition: opacity 0.3s ease;
 }
 .form__input-error_active {
   opacity: 1;

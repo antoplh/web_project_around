@@ -2,6 +2,22 @@
   max-width: 880px;
   margin: auto;
 }
+.header__flexbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__actions {
+  display: flex;
+  gap: 20px;
+}
+.header__link {
+  text-decoration: none;
+  color: white;
+}
+.header__logout {
+  opacity: 50%;
+}
 .header__logo {
   margin-bottom: 7%;
   margin-top: 7%;

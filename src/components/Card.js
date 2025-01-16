@@ -1,94 +1,54 @@
-export default class Card {
-  constructor(
-    data,
-    cardSelector,
-    handleCardClick,
-    handleCardDelete,
-    handleHeartUpdate,
-    userId
-  ) {
-    this._name = data.name;
-    this._link = data.link;
-    this._numLikes = data.likes ? data.likes.length : "";
-    this._cardId = data._id;
-    this._userId = userId; // saber el usuario actual
-    this._ownerId = data.owner._id;
-    this._cardSelector = cardSelector;
-    this._handleCardClick = handleCardClick; // Para usar PopupWithImage
-    this._handleCardDelete = handleCardDelete; // Para usar PopupConfirm
-    this._handleHeartUpdate = handleHeartUpdate; // Para actualizar el like
-    this._isliked = data.likes.some((like) => like._id === this._userId);
-  }
+import { useContext } from "react";
+import CurrentUserContext from "../contexts/CurrentUserContext";
+import binIcon from "../images/bin.png";
+import heartIcon from "../images/heart_deac.svg";
+import heartActiveIcon from "../images/heart_active.svg";
 
-  _getTemplate() {
-    const cardElement = document
-      .querySelector(this._cardSelector)
-      .content.querySelector(".card")
-      .cloneNode(true);
-    return cardElement;
-  }
+function Card({ card, onCardClick, onCardLike, onCardDelete }) {
+  const currentUser = useContext(CurrentUserContext);
 
-  updateNumHearts(numLikes) {
-    // actualiza el numero de likes en una tarjeta
-    this._numLikes = numLikes !== undefined ? numLikes : this._numLikes;
+  // Verificar si el usuario actual dio like a esta tarjeta
+  const isLiked = card.likes.some((user) => user._id === currentUser._id);
+  const cardLikeButtonClassName = `card__heart ${
+    isLiked ? "card__heart_active" : ""
+  }`;
 
-    const heart = this._element.querySelector(".card__heart");
-    if (this._numLikes === 0) {
-      heart.setAttribute("data-likes", "");
-    } else {
-      heart.setAttribute("data-likes", this._numLikes);
-    }
-  }
+  // Verificar si el usuario actual es el dueño de esta tarjeta
+  const isOwner = card.owner._id === currentUser._id;
 
-  generateCard() {
-    this._element = this._getTemplate();
-    this._setEventListeners();
+  const handleLikeClick = () => onCardLike(card);
+  const handleDeleteClick = () => onCardDelete(card);
 
-    this._element.querySelector(".card__title").textContent = this._name;
-    this._element.querySelector(".card__image").src = this._link;
-    this._element.querySelector(".card__image").alt = this._name;
-
-    if (this._userId !== this._ownerId) {
-      this._element.querySelector(".card__delete").style.display = "none";
-    }
-    if (this._isliked) {
-      this._element
-        .querySelector(".card__heart")
-        .classList.add("card__heart_active");
-    }
-    this.updateNumHearts();
-    return this._element;
-  }
-
-  _setEventListeners() {
-    this._element
-      .querySelector(".card__heart")
-      .addEventListener("click", () => this._handleHeartCard());
-
-    this._element
-      .querySelector(".card__delete")
-      .addEventListener("click", () =>
-        this._handleCardDelete(this._cardId, this)
-      );
-
-    this._element
-      .querySelector(".card__image")
-      .addEventListener("click", () =>
-        this._handleCardClick(this._link, this._name)
-      );
-  }
-
-  removeCard() {
-    // Elimina la tarjeta visualmente
-    this._element.remove();
-    this._element = null;
-  }
-
-  _handleHeartCard() {
-    this._element
-      .querySelector(".card__heart")
-      .classList.toggle("card__heart_active");
-    this._isliked = !this._isliked;
-    this._handleHeartUpdate(this._cardId, !this._isliked, this); // estado del like contrario para que tome su estado anterior
-  }
+  return (
+    <div className="card">
+      {isOwner && (
+        <button
+          className="card__delete"
+          onClick={handleDeleteClick}
+          style={{
+            backgroundImage: `url(${binIcon})`,
+          }}
+        ></button>
+      )}
+      <img
+        className="card__image"
+        src={card.link}
+        alt={card.name}
+        onClick={() => onCardClick(card)}
+      />
+      <div className="card__description">
+        <h3 className="card__title">{card.name}</h3>
+        <button
+          className={cardLikeButtonClassName}
+          onClick={handleLikeClick}
+          style={{
+            backgroundImage: `url(${isLiked ? heartActiveIcon : heartIcon})`,
+          }}
+          data-likes={card.likes.length}
+        ></button>
+      </div>
+    </div>
+  );
 }
+
+export default Card;
